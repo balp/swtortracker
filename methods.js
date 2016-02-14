@@ -13,14 +13,16 @@ Meteor.methods({
     Charaters.insert(character)
   },
   updateCharacter: function(id, character) {
-    if(! Meteor.userId()) {
+    var existingCharacter = Charaters.findOne(id)
+    if(existingCharacter.owner !== Meteor.userId() ) {
       throw new Meteor.Error("not-authorized");
     }
     character.updated = new Date();
     Charaters.update(id, {$set: character})
   },
   removeCharacter: function(id){
-    if(! Meteor.userId()) {
+    var character = Charaters.findOne(id)
+    if(character.owner !== Meteor.userId() ) {
       throw new Meteor.Error("not-authorized");
     }
     Charaters.remove(id)
