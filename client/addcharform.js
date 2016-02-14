@@ -1,32 +1,31 @@
 
-var filterSelects = function(e) {
-    console.log(e)
-    Session.set("editAllegiance", $('#charAllegiance').val());
-    Session.set("editBaseClass", $('#charClass').val());
-    Session.set("editAvdClass", $('#charAdvClass').val());
+var filterSelects = function() {
+    Session.set("selectedAllegiance", $('#charAllegiance').val());
+    Session.set("selectedBaseClass", $('#charClass').val());
+    Session.set("selectedAdvanceClass", $('#charAdvClass').val());
 };
 
 Template.addCharacter.helpers({
    inAllegience: function(allegiance) {
-     var current = Session.get("editAllegiance");
-     console.log(current, allegiance, current === allegiance)
+     var current = Session.get("selectedAllegiance");
+     //console.log("inAllegience", current, allegiance, current === allegiance)
      return current === allegiance;
    },
    inClass: function(baseClass) {
-     var current = Session.get("editBaseClass");
-     console.log(current, baseClass, current === baseClass)
+     var current = Session.get("selectedBaseClass");
+     // console.log("inClass", current, baseClass, current === baseClass)
      return current === baseClass;
    },
    inAdvClass: function(advClass) {
-     var current = Session.get("editAdvClass");
-     console.log(current, advClass, current === advClass)
+     var current = Session.get("selectedAdvanceClass");
+     //console.log("inAdvClass", current, advClass, current === advClass)
      return current === advClass;
    }
 });
 
 Template.addCharacter.events({
   'change form': function(e, b) {
-    filterSelects(e)
+    filterSelects()
   },
   'submit form': function(e, b) {
     console.log( $("#charServer" ) )
@@ -41,13 +40,15 @@ Template.addCharacter.events({
       advClass: $('#charAdvClass').val(),
       skillTree: $('#charSkillTree').val()
     };
-    console.log(newChar)
+    //console.log(newChar)
     Meteor.call("addCharacter", newChar);
     //Charaters.insert(newChar)
     $('#addCharacterForm').find('input:text').val('');
   }
 });
 
-Template.addCharacter.onRendered(function() {
-  filterSelects(e)
+Template.addCharacter.onCreated(function() {
+    Session.setDefault("selectedAllegiance", "republic");
+    Session.setDefault("selectedBaseClass", "Trooper");
+    Session.setDefault("selectedAdvanceClass", "Vanguard");
 });
