@@ -1,5 +1,33 @@
 
+var filterSelects = function(e) {
+    console.log(e)
+    Session.set("editAllegiance", $('#charAllegiance').val());
+    Session.set("editBaseClass", $('#charClass').val());
+    Session.set("editAvdClass", $('#charAdvClass').val());
+};
+
+Template.addCharacter.helpers({
+   inAllegience: function(allegiance) {
+     var current = Session.get("editAllegiance");
+     console.log(current, allegiance, current === allegiance)
+     return current === allegiance;
+   },
+   inClass: function(baseClass) {
+     var current = Session.get("editBaseClass");
+     console.log(current, baseClass, current === baseClass)
+     return current === baseClass;
+   },
+   inAdvClass: function(advClass) {
+     var current = Session.get("editAdvClass");
+     console.log(current, advClass, current === advClass)
+     return current === advClass;
+   }
+});
+
 Template.addCharacter.events({
+  'change form': function(e, b) {
+    filterSelects(e)
+  },
   'submit form': function(e, b) {
     console.log( $("#charServer" ) )
     var newChar = {
@@ -20,3 +48,6 @@ Template.addCharacter.events({
   }
 });
 
+Template.addCharacter.onRendered(function() {
+  filterSelects(e)
+});

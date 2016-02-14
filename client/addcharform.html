@@ -1,27 +1,34 @@
 
 <template name="addCharacter">
-  <form id="addCharacterForm" class="form-inline">
+  <form id="addCharacterForm" class="form-horizontal">
     <div class="form-group">
-      <label for="charServer">Server:</label>
-      <select id="charServer">
+      <label for="charServer" class="col-sm-2 control-label">Server:</label>
+      <div class="col-sm-10">
+      <select class="form-control" id="charServer">
 	<option value="The Progenitor">The Progenitor</option>
 	<option value="The Red Eclipse">The Red Eclipse</option>
       </select>
+      </div>
     </div>
     <div class="form-group">
-      <label for="charAllegiance">Allegiance:</label>
-      <select id="charAllegiance">
+      <label for="charAllegiance" class="col-sm-2 control-label">Allegiance:</label>
+      <div class="col-sm-10">
+      <select class="form-control" id="charAllegiance">
 	<option value="republic">The Galactic Republic</option>
 	<option value="sith">The Sith Empire</option>
       </select>
+      </div>
     </div>
     <div class="form-group">
-      <label for="charName">Name:</label>
-      <input type="text" id="charName">
+      <label for="charName" class="col-sm-2 control-label">Name:</label>
+      <div class="col-sm-10">
+      <input class="form-control" type="text" id="charName">
+      </div>
     </div>
     <div class="form-group">
-      <label for="charSpecies">Species:</label>
-      <select id="charSpecies">
+      <label for="charSpecies" class="col-sm-2 control-label">Species:</label>
+      <div class="col-sm-10">
+      <select class="form-control" id="charSpecies">
 	<option value="Chiss">Chiss</option>
 	<option value="Cyborg">Cyborg</option>
 	<option value="Human">Human</option>
@@ -33,93 +40,106 @@
 	<option value="Cathar">Cathar</option>
 	<option value="Togruta">Togruta</option>
       </select>
+      </div>
     </div>
     <div class="form-group">
-      <label for="charClass">Class:</label>
-      <select id="charClass">
-	<option value="Trooper">Trooper</option>
-	<option value="Smuggler">Smuggler</option>
-	<option value="JediKnight">Jedi Knight</option>
-	<option value="JediConsular">Jedi Consular</option>
-	<option value="BountyHunter">Bounty Hunter</option>
-	<option value="SithWarrior">Sith Warrior</option>
-	<option value="ImperialAgent">Imperial Agent</option>
-	<option value="SithInquisitor">Sith Inquisitor</option>
+      <label for="charClass" class="col-sm-2 control-label">Class:</label>
+      <div class="col-sm-10">
+      <select class="form-control" id="charClass">
+	{{#if inAllegience "republic"}}<option value="Trooper">Trooper</option>{{/if}}
+	{{#if inAllegience "republic"}}<option value="Smuggler">Smuggler</option>{{/if}}
+	{{#if inAllegience "republic"}}<option value="JediKnight">Jedi Knight</option>{{/if}}
+	{{#if inAllegience "republic"}}<option value="JediConsular">Jedi Consular</option>{{/if}}
+	{{#if inAllegience "sith"}}<option value="BountyHunter">Bounty Hunter</option>{{/if}}
+	{{#if inAllegience "sith"}}<option value="SithWarrior">Sith Warrior</option>{{/if}}
+	{{#if inAllegience "sith"}}<option value="ImperialAgent">Imperial Agent</option>{{/if}}
+	{{#if inAllegience "sith"}}<option value="SithInquisitor">Sith Inquisitor</option>{{/if}}
       </select>
+      </div>
     </div>
     <div class="form-group">
-      <label for="charAdvClass">Advanced Class:</label>
-      <select id="charAdvClass">
-	<option value="Vanguard">Vanguard</option>
-	<option value="Commando">Commando</option>
+      <label for="charAdvClass" class="col-sm-2 control-label">Advanced Class:</label>
+      <div class="col-sm-10">
+      <select class="form-control" id="charAdvClass">
+	{{#if inClass "Trooper"}}<option value="Vanguard">Vanguard</option>{{/if}}
+	{{#if inClass "Trooper"}}<option value="Commando">Commando</option>{{/if}}
 
-	<option value="Gunslinger">Gunslinger</option>
-	<option value="Scoundrel">Scoundrel</option>
+	{{#if inClass "Smuggler"}}<option value="Gunslinger">Gunslinger</option>{{/if}}
+	{{#if inClass "Smuggler"}}<option value="Scoundrel">Scoundrel</option>{{/if}}
 
-	<option value="Guardian">Guardian</option>
-	<option value="Sentinel">Sentinel</option>
+	{{#if inClass "JediKnight"}}<option value="Guardian">Guardian</option>{{/if}}
+	{{#if inClass "JediKnight"}}<option value="Sentinel">Sentinel</option>{{/if}}
 
-	<option value="Sage">Sage</option>
-	<option value="Shadow">Shadow</option>
+	{{#if inClass "JediConsular"}}<option value="Sage">Sage</option>{{/if}}
+	{{#if inClass "JediConsular"}}<option value="Shadow">Shadow</option>{{/if}}
 
-	<option value="Powertech">Powertech</option>
-	<option value="Mercenary">Mercenary</option>
+	{{#if inClass "BountyHunter"}}<option value="Powertech">Powertech</option>{{/if}}
+	{{#if inClass "BountyHunter"}}<option value="Mercenary">Mercenary</option>{{/if}}
 
-	<option value="Juggernaut">Juggernaut</option>
-	<option value="Marauder">Marauder</option>
+	{{#if inClass "SithWarrior"}}<option value="Juggernaut">Juggernaut</option>{{/if}}
+	{{#if inClass "SithWarrior"}}<option value="Marauder">Marauder</option>{{/if}}
 
-	<option value="Operative">Operative</option>
-	<option value="Sniper">Sniper</option>
+	{{#if inClass "ImperialAgent"}}<option value="Operative">Operative</option>{{/if}}
+	{{#if inClass "ImperialAgent"}}<option value="Sniper">Sniper</option>{{/if}}
 
-	<option value="Assassin">Assassin</option>
-	<option value="Sorcerer">Sorcerer</option>
+	{{#if inClass "SithInquisitor"}}<option value="Assassin">Assassin</option>{{/if}}
+	{{#if inClass "SithInquisitor"}}<option value="Sorcerer">Sorcerer</option>{{/if}}
       </select>
+      </div>
     </div>
     <div class="form-group">
-      <label for="charSkillTree">Skill Tree:</label>
-      <select id="charSkillTree">
-	<option value="Pyrotech">Pyrotech</option>
-	<option value="Arcenal">Arcenal</option>
-	<option value="Bodyguard">Bodyguard</option>
-	<option value="AdvancedPrototype">Advanced Prototype</option>
-	<option value="ShieldTech">Shield Tech</option>
+      <label for="charSkillTree" class="col-sm-2 control-label">Skill Tree:</label>
+      <div class="col-sm-10">
+      <select class="form-control" id="charSkillTree">
+	{{#if inClass "BountyHunter"}}<option value="Pyrotech">Pyrotech</option>{{/if}}
+	{{#if inAdvClass "Mercenary"}}<option value="Arcenal">Arcenal</option>{{/if}}
+	{{#if inAdvClass "Mercenary"}}<option value="Bodyguard">Bodyguard</option>{{/if}}
+	{{#if inAdvClass "Powertech"}}<option value="AdvancedPrototype">Advanced Prototype</option>{{/if}}
+	{{#if inAdvClass "Powertech"}}<option value="ShieldTech">Shield Tech</option>{{/if}}
 
-	<option value="Lethality">Lethality</option>
-	<option value="Concealment">Concealment</option>
-	<option value="Medic">Medic</option>
-	<option value="Engineering">Engineering</option>
-	<option value="Marksmanship">Marksmanship</option>
+	{{#if inClass "ImperialAgent"}}<option value="Lethality">Lethality</option>{{/if}}
+	{{#if inAdvClass "Operative"}}<option value="Concealment">Concealment</option>{{/if}}
+	{{#if inAdvClass "Operative"}}<option value="Medic">Medic</option>{{/if}}
+	{{#if inAdvClass "Sniper"}}<option value="Engineering">Engineering</option>{{/if}}
+	{{#if inAdvClass "Sniper"}}<option value="Marksmanship">Marksmanship</option>{{/if}}
 
-	<option value="Focus">Focus</option>
-	<option value="Defence">Defence</option>
-	<option value="Vigilance">Vigilance</option>
-	<option value="Combat">Combat</option>
-	<option value="Watchman">Watchman</option>
+	{{#if inClass "JediConsular"}}<option value="Balance">Balance</option>{{/if}}
+	{{#if inAdvClass "Sage"}}<option value="Seer">Seer</option>{{/if}}
+	{{#if inAdvClass "Sage"}}<option value="Telekinetics">Telekinetics</option>{{/if}}
+	{{#if inAdvClass "Shadow"}}<option value="Infiltration">Infiltration</option>{{/if}}
+	{{#if inAdvClass "Shadow"}}<option value="KineticCombat">Kinetic Combat</option>{{/if}}
 
-	<option value="Madness">Madness</option>
-	<option value="Lightning">Lightning</option>
-	<option value="Corruption">Corruption</option>
-	<option value="Deception">Deception</option>
-	<option value="Darkness">Darkness</option>
+	{{#if inClass "JediKnight"}}<option value="Focus">Focus</option>{{/if}}
+	{{#if inAdvClass "Guardian"}}<option value="Defence">Defence</option>{{/if}}
+	{{#if inAdvClass "Guardian"}}<option value="Vigilance">Vigilance</option>{{/if}}
+	{{#if inAdvClass "Sentinel"}}<option value="Combat">Combat</option>{{/if}}
+	{{#if inAdvClass "Sentinel"}}<option value="Watchman">Watchman</option>{{/if}}
 
-	<option value="Rage">Rage</option>
-	<option value="Immortal">Immortal</option>
-	<option value="Vengeance">Vengeance</option>
-	<option value="Annihilation">Annihilation</option>
-	<option value="Carnage">Carnage</option>
+	{{#if inClass "SithInquisitor"}}<option value="Madness">Madness</option>{{/if}}
+	{{#if inAdvClass "Assassin"}}<option value="Lightning">Lightning</option>{{/if}}
+	{{#if inAdvClass "Assassin"}}<option value="Corruption">Corruption</option>{{/if}}
+	{{#if inAdvClass "Sorcerer"}}<option value="Deception">Deception</option>{{/if}}
+	{{#if inAdvClass "Sorcerer"}}<option value="Darkness">Darkness</option>{{/if}}
 
-	<option value="DirtyFighting">Dirty Fighting</option>
-	<option value="Saboteur">Saboteur</option>
-	<option value="Sharpshooter">Sharpshooter</option>
-	<option value="Sawbones">Sawbones</option>
-	<option value="Scrapper">Scrapper</option>
+	{{#if inClass "SithWarrior"}}<option value="Rage">Rage</option>{{/if}}
+	{{#if inAdvClass "Juggernaut"}}<option value="Immortal">Immortal</option>{{/if}}
+	{{#if inAdvClass "Juggernaut"}}<option value="Vengeance">Vengeance</option>{{/if}}
+	{{#if inAdvClass "Marauder"}}<option value="Annihilation">Annihilation</option>{{/if}}
+	{{#if inAdvClass "Marauder"}}<option value="Carnage">Carnage</option>{{/if}}
 
-	<option value="AssultSpecialist">Assult Specialist</option>
-	<option value="CombatMedic">Combat Medic</option>
-	<option value="Gunnery">Gunnery</option>
-	<option value="ShieldSpecialist">Shield Specialist</option>
-	<option value="Tactics">Tactics</option>
+	{{#if inClass "Smuggler"}}<option value="DirtyFighting">Dirty Fighting</option>{{/if}}
+	{{#if inAdvClass "Gunslinger"}}<option value="Saboteur">Saboteur</option>{{/if}}
+	{{#if inAdvClass "Gunslinger"}}<option value="Sharpshooter">Sharpshooter</option>{{/if}}
+	{{#if inAdvClass "Scoundrel"}}<option value="Sawbones">Sawbones</option>{{/if}}
+	{{#if inAdvClass "Scoundrel"}}<option value="Scrapper">Scrapper</option>{{/if}}
+
+	{{#if inClass "Trooper"}}<option value="AssultSpecialist">Assult Specialist</option>{{/if}}
+	{{#if inAdvClass "Commando"}}<option value="CombatMedic">Combat Medic</option>{{/if}}
+	{{#if inAdvClass "Commando"}}<option value="Gunnery">Gunnery</option>{{/if}}
+	{{#if inAdvClass "Vanguard"}}<option value="ShieldSpecialist">Shield Specialist</option>{{/if}}
+	{{#if inAdvClass "Vanguard"}}<option value="Tactics">Tactics</option>{{/if}}
       </select>
+      </div>
     </div>
 
     <button type="submit" id="addNewCharater" value="Add Charater" class="btn btn-default">Add Charater</button>
