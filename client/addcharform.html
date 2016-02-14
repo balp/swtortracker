@@ -1,115 +1,128 @@
 
 <template name="addCharacter">
-  <form id="addCharacterForm">
-    <label for="charServer">Server:</label>
-    <select id="charServer">
-      <option value="The Progenitor">The Progenitor</option>
-      <option value="The Red Eclipse">The Red Eclipse</option>
-    </select>
-    <label for="charAllegiance">Allegiance:</label>
-    <select id="charAllegiance">
-      <option value="republic">The Galactic Republic</option>
-      <option value="sith">The Sith Empire</option>
-    </select>
-    <label for="charName">Name:</label>
-    <input type="text" id="charName">
-    <label for="charSpecies">Species:</label>
-    <select id="charSpecies">
-      <option value="Chiss">Chiss</option>
-      <option value="Cyborg">Cyborg</option>
-      <option value="Human">Human</option>
-      <option value="Miraluka">Miraluka</option>
-      <option value="Mirialan">Mirialan</option>
-      <option value="Sith Pureblood">Sith Pureblood</option>
-      <option value="Twilek">Twi'lek</option>
-      <option value="Zabrak">Zabrak</option>
-      <option value="Cathar">Cathar</option>
-      <option value="Togruta">Togruta</option>
-    </select>
-    <label for="charClass">Class:</label>
-    <select id="charClass">
-      <option value="Trooper">Trooper</option>
-      <option value="Smuggler">Smuggler</option>
-      <option value="JediKnight">Jedi Knight</option>
-      <option value="JediConsular">Jedi Consular</option>
-      <option value="BountyHunter">Bounty Hunter</option>
-      <option value="SithWarrior">Sith Warrior</option>
-      <option value="ImperialAgent">Imperial Agent</option>
-      <option value="SithInquisitor">Sith Inquisitor</option>
-    </select>
-    <label for="charAdvClass">Advanced Class:</label>
-    <select id="charAdvClass">
-      <option value="Vanguard">Vanguard</option>
-      <option value="Commando">Commando</option>
+  <form id="addCharacterForm" class="form-inline">
+    <div class="form-group">
+      <label for="charServer">Server:</label>
+      <select id="charServer">
+	<option value="The Progenitor">The Progenitor</option>
+	<option value="The Red Eclipse">The Red Eclipse</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="charAllegiance">Allegiance:</label>
+      <select id="charAllegiance">
+	<option value="republic">The Galactic Republic</option>
+	<option value="sith">The Sith Empire</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="charName">Name:</label>
+      <input type="text" id="charName">
+    </div>
+    <div class="form-group">
+      <label for="charSpecies">Species:</label>
+      <select id="charSpecies">
+	<option value="Chiss">Chiss</option>
+	<option value="Cyborg">Cyborg</option>
+	<option value="Human">Human</option>
+	<option value="Miraluka">Miraluka</option>
+	<option value="Mirialan">Mirialan</option>
+	<option value="Sith Pureblood">Sith Pureblood</option>
+	<option value="Twilek">Twi'lek</option>
+	<option value="Zabrak">Zabrak</option>
+	<option value="Cathar">Cathar</option>
+	<option value="Togruta">Togruta</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="charClass">Class:</label>
+      <select id="charClass">
+	<option value="Trooper">Trooper</option>
+	<option value="Smuggler">Smuggler</option>
+	<option value="JediKnight">Jedi Knight</option>
+	<option value="JediConsular">Jedi Consular</option>
+	<option value="BountyHunter">Bounty Hunter</option>
+	<option value="SithWarrior">Sith Warrior</option>
+	<option value="ImperialAgent">Imperial Agent</option>
+	<option value="SithInquisitor">Sith Inquisitor</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="charAdvClass">Advanced Class:</label>
+      <select id="charAdvClass">
+	<option value="Vanguard">Vanguard</option>
+	<option value="Commando">Commando</option>
 
-      <option value="Gunslinger">Gunslinger</option>
-      <option value="Scoundrel">Scoundrel</option>
+	<option value="Gunslinger">Gunslinger</option>
+	<option value="Scoundrel">Scoundrel</option>
 
-      <option value="Guardian">Guardian</option>
-      <option value="Sentinel">Sentinel</option>
+	<option value="Guardian">Guardian</option>
+	<option value="Sentinel">Sentinel</option>
 
-      <option value="Sage">Sage</option>
-      <option value="Shadow">Shadow</option>
+	<option value="Sage">Sage</option>
+	<option value="Shadow">Shadow</option>
 
-      <option value="Powertech">Powertech</option>
-      <option value="Mercenary">Mercenary</option>
+	<option value="Powertech">Powertech</option>
+	<option value="Mercenary">Mercenary</option>
 
-      <option value="Juggernaut">Juggernaut</option>
-      <option value="Marauder">Marauder</option>
+	<option value="Juggernaut">Juggernaut</option>
+	<option value="Marauder">Marauder</option>
 
-      <option value="Operative">Operative</option>
-      <option value="Sniper">Sniper</option>
+	<option value="Operative">Operative</option>
+	<option value="Sniper">Sniper</option>
 
-      <option value="Assassin">Assassin</option>
-      <option value="Sorcerer">Sorcerer</option>
-    </select>
-    <label for="charSkillTree">Skill Tree:</label>
-    <select id="charSkillTree">
-      <option value="Pyrotech">Pyrotech</option>
-      <option value="Arcenal">Arcenal</option>
-      <option value="Bodyguard">Bodyguard</option>
-      <option value="AdvancedPrototype">Advanced Prototype</option>
-      <option value="ShieldTech">Shield Tech</option>
+	<option value="Assassin">Assassin</option>
+	<option value="Sorcerer">Sorcerer</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="charSkillTree">Skill Tree:</label>
+      <select id="charSkillTree">
+	<option value="Pyrotech">Pyrotech</option>
+	<option value="Arcenal">Arcenal</option>
+	<option value="Bodyguard">Bodyguard</option>
+	<option value="AdvancedPrototype">Advanced Prototype</option>
+	<option value="ShieldTech">Shield Tech</option>
 
-      <option value="Lethality">Lethality</option>
-      <option value="Concealment">Concealment</option>
-      <option value="Medic">Medic</option>
-      <option value="Engineering">Engineering</option>
-      <option value="Marksmanship">Marksmanship</option>
+	<option value="Lethality">Lethality</option>
+	<option value="Concealment">Concealment</option>
+	<option value="Medic">Medic</option>
+	<option value="Engineering">Engineering</option>
+	<option value="Marksmanship">Marksmanship</option>
 
-      <option value="Focus">Focus</option>
-      <option value="Defence">Defence</option>
-      <option value="Vigilance">Vigilance</option>
-      <option value="Combat">Combat</option>
-      <option value="Watchman">Watchman</option>
+	<option value="Focus">Focus</option>
+	<option value="Defence">Defence</option>
+	<option value="Vigilance">Vigilance</option>
+	<option value="Combat">Combat</option>
+	<option value="Watchman">Watchman</option>
 
-      <option value="Madness">Madness</option>
-      <option value="Lightning">Lightning</option>
-      <option value="Corruption">Corruption</option>
-      <option value="Deception">Deception</option>
-      <option value="Darkness">Darkness</option>
+	<option value="Madness">Madness</option>
+	<option value="Lightning">Lightning</option>
+	<option value="Corruption">Corruption</option>
+	<option value="Deception">Deception</option>
+	<option value="Darkness">Darkness</option>
 
-      <option value="Rage">Rage</option>
-      <option value="Immortal">Immortal</option>
-      <option value="Vengeance">Vengeance</option>
-      <option value="Annihilation">Annihilation</option>
-      <option value="Carnage">Carnage</option>
+	<option value="Rage">Rage</option>
+	<option value="Immortal">Immortal</option>
+	<option value="Vengeance">Vengeance</option>
+	<option value="Annihilation">Annihilation</option>
+	<option value="Carnage">Carnage</option>
 
-      <option value="DirtyFighting">Dirty Fighting</option>
-      <option value="Saboteur">Saboteur</option>
-      <option value="Sharpshooter">Sharpshooter</option>
-      <option value="Sawbones">Sawbones</option>
-      <option value="Scrapper">Scrapper</option>
+	<option value="DirtyFighting">Dirty Fighting</option>
+	<option value="Saboteur">Saboteur</option>
+	<option value="Sharpshooter">Sharpshooter</option>
+	<option value="Sawbones">Sawbones</option>
+	<option value="Scrapper">Scrapper</option>
 
-      <option value="AssultSpecialist">Assult Specialist</option>
-      <option value="CombatMedic">Combat Medic</option>
-      <option value="Gunnery">Gunnery</option>
-      <option value="ShieldSpecialist">Shield Specialist</option>
-      <option value="Tactics">Tactics</option>
+	<option value="AssultSpecialist">Assult Specialist</option>
+	<option value="CombatMedic">Combat Medic</option>
+	<option value="Gunnery">Gunnery</option>
+	<option value="ShieldSpecialist">Shield Specialist</option>
+	<option value="Tactics">Tactics</option>
+      </select>
+    </div>
 
-    </select>
-
-    <input type="submit" id="addNewCharater" value="Add Charater">
+    <button type="submit" id="addNewCharater" value="Add Charater" class="btn btn-default">Add Charater</button>
   </form>
 </template>
 

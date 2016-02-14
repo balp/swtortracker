@@ -2,15 +2,9 @@
   {{#if editing}}
   <tr>
     <td>
-      <select id="editServer">
-	<option {{selected server "The Progenitor"}}>The Progenitor</option>
-	<option {{selected server "The Red Eclipse"}}>The Red Eclipse</option>
-      </select><br/>
-    </td>
-    <td>
       <select id="editAllegiance">
-	<option {{selected allegiance "republic"}}>The Galactic Republic</option>
-	<option {{selected allegiance "sith"}}>The Sith Empire</option>
+	<option {{selected allegiance "republic"}} value="republic">The Galactic Republic</option>
+	<option {{selected allegiance "sith"}} value="sith">The Sith Empire</option>
       </select>
     </td>
     <td>
@@ -116,22 +110,28 @@
       </select>
     </td>
     <td>
-      <button class="cancelCharater">Cancel</button>
-      <button class="saveCharater">Save</button>
+      <select id="editServer">
+	<option {{selected server "The Progenitor"}}>The Progenitor</option>
+	<option {{selected server "The Red Eclipse"}}>The Red Eclipse</option>
+      </select>
+    </td>
+    <td>
+      <button class="cancelCharater btn">Cancel</button>
+      <button class="saveCharater btn">Save</button>
     </td>
   </tr>
   {{else}}
   <tr>
-    <td>{{server}}</td>
-    <td>{{allegiance}}</td>
+    <td><img src="faction-{{allegiance}}.png" /></td>
     <td>{{name}}</td>
     <td>{{species}}</td>
     <td>{{baseClass}}</td>
     <td>{{advClass}}</td>
     <td>{{skillTree}}</td>
+    <td>{{server}}</td>
     <td>
-      <button class="editCharater">Edit</button>
-      <button class="deleteCharater">Delete</button>
+      <button class="editCharater btn" >Edit</button>
+      <button class="deleteCharater btn">Delete</button>
     </td>
   </tr>
   {{/if}}
