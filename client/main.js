@@ -1,5 +1,7 @@
 Charaters = new Mongo.Collection("characters")
 
+Meteor.subscribe("characters")
+
 Accounts.ui.config({
   passwordSignupFields: "USERNAME_ONLY"
 });
