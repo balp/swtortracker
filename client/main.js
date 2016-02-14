@@ -6,7 +6,7 @@ Accounts.ui.config({
 
 Template.charaterList.helpers({
   characters: function() {
-    return Charaters.find();
+    return Charaters.find( {owner: Meteor.userId() } );
   }
 });
 
@@ -25,7 +25,8 @@ Template.addCharacter.events({
       skillTree: $('#charSkillTree').val()
     };
     console.log(newChar)
-    Charaters.insert(newChar)
+    Meteor.call("addCharacter", newChar);
+    //Charaters.insert(newChar)
     $('#addCharacterForm').find('input:text').val('');
   }
 });

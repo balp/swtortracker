@@ -9,7 +9,8 @@ var saveCharater = function(){
       advClass: $('#editAdvClass').val(),
       skillTree: $('#editSkillTree').val()
   }
-  Charaters.update(Session.get('editCharaterId'), {$set: editCharater})
+  //Charaters.update(Session.get('editCharaterId'), {$set: editCharater});
+  Meteor.call("updateCharacter", Session.get('editCharaterId'), editCharater);
   Session.set('editCharaterId', null)
 }
 
@@ -25,7 +26,7 @@ Template.character.helpers({
 
 Template.character.events({
   'click .deleteCharater': function(){
-    Charaters.remove(this._id);
+    Meteor.call("removeCharacter", this._id);
   },
   'click .editCharater': function() {
     Session.set('editCharaterId', this._id);
