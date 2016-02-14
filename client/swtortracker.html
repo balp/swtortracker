@@ -5,8 +5,10 @@
 
 <body>
   <h1>SWTOR Tracker</h1>
+  {{> loginButtons}}
 
-  {{> charaterList}}
-
-  {{> addCharacter}}
+  {{#if currentUser}}
+    {{> charaterList}}
+    {{> addCharacter}}
+  {{/if}}
 </body>
