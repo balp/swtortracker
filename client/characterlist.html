@@ -1,0 +1,24 @@
+
+<template name="charaterList">
+  <p>All items</p>
+  <table>
+    <thead>
+      <tr>
+	<th>Server</th>
+	<th>Faction</th>
+	<th>Name</th>
+	<th>Race</th>
+	<th>Class</th>
+	<th>Advanced Class</th>
+	<th>Skill Tree</th>
+	<th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each characters}}
+        {{> character}}
+      {{/each}}
+    </tbody>
+  </table>
+</template>
+

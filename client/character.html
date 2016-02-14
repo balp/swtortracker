@@ -1,0 +1,139 @@
+<template name="character">
+  {{#if editing}}
+  <tr>
+    <td>
+      <select id="editServer">
+	<option {{selected server "The Progenitor"}}>The Progenitor</option>
+	<option {{selected server "The Red Eclipse"}}>The Red Eclipse</option>
+      </select><br/>
+    </td>
+    <td>
+      <select id="editAllegiance">
+	<option {{selected allegiance "republic"}}>The Galactic Republic</option>
+	<option {{selected allegiance "sith"}}>The Sith Empire</option>
+      </select>
+    </td>
+    <td>
+      <input type="text" id="editName" value={{ name }}>
+    </td>
+    <td>
+      <select id="editSpecies">
+	<option {{selected species "Chiss"}}>Chiss</option>
+	<option {{selected species "Cyborg"}}>Cyborg</option>
+	<option {{selected species "Human"}}>Human</option>
+	<option {{selected species "Miraluka"}}>Miraluka</option>
+	<option {{selected species "Mirialan"}}>Mirialan</option>
+	<option {{selected species "Sith Pureblood"}}>Sith Pureblood</option>
+	<option {{selected species "Twilek"}}>Twi'lek</option>
+	<option {{selected species "Zabrak"}}>Zabrak</option>
+	<option {{selected species "Cathar"}}>Cathar</option>
+	<option {{selected species "Togruta"}}>Togruta</option>
+      </select>
+    </td>
+    <td>
+      <select id="editClass">
+	<option {{selected baseClass "Trooper"}}>Trooper</option>
+	<option {{selected baseClass "Smuggler"}}>Smuggler</option>
+	<option {{selected baseClass "JediKnight"}}>Jedi Knight</option>
+	<option {{selected baseClass "JediConsular"}}>Jedi Consular</option>
+	<option {{selected baseClass "BountyHunter"}}>Bounty Hunter</option>
+	<option {{selected baseClass "SithWarrior"}}>Sith Warrior</option>
+	<option {{selected baseClass "ImperialAgent"}}>Imperial Agent</option>
+	<option {{selected baseClass "SithInquisitor"}}>Sith Inquisitor</option>
+      </select>
+    </td>
+    <td>
+      <select id="editAdvClass">
+	<option {{selected advClass "Vanguard"}}>Vanguard</option>
+	<option {{selected advClass "Commando"}}>Commando</option>
+
+	<option {{selected advClass "Gunslinger"}}>Gunslinger</option>
+	<option {{selected advClass "Scoundrel"}}>Scoundrel</option>
+
+	<option {{selected advClass "Guardian"}}>Guardian</option>
+	<option {{selected advClass "Sentinel"}}>Sentinel</option>
+
+	<option {{selected advClass "Sage"}}>Sage</option>
+	<option {{selected advClass "Shadow"}}>Shadow</option>
+
+	<option {{selected advClass "Powertech"}}>Powertech</option>
+	<option {{selected advClass "Mercenary"}}>Mercenary</option>
+
+	<option {{selected advClass "Juggernaut"}}>Juggernaut</option>
+	<option {{selected advClass "Marauder"}}>Marauder</option>
+
+	<option {{selected advClass "Operative"}}>Operative</option>
+	<option {{selected advClass "Sniper"}}>Sniper</option>
+
+	<option {{selected advClass "Assassin"}}>Assassin</option>
+	<option {{selected advClass "Sorcerer"}}>Sorcerer</option>
+      </select>
+    </td>
+    <td>
+      <select id="editSkillTree">
+	<option {{selected skillTree "Pyrotech"}}>Pyrotech</option>
+	<option {{selected skillTree "Arcenal"}}>Arcenal</option>
+	<option {{selected skillTree "Bodyguard"}}>Bodyguard</option>
+	<option {{selected skillTree "AdvancedPrototype"}}>Advanced Prototype</option>
+	<option {{selected skillTree "ShieldTech"}}>Shield Tech</option>
+
+	<option {{selected skillTree "Lethality"}}>Lethality</option>
+	<option {{selected skillTree "Concealment"}}>Concealment</option>
+	<option {{selected skillTree "Medic"}}>Medic</option>
+	<option {{selected skillTree "Engineering"}}>Engineering</option>
+	<option {{selected skillTree "Marksmanship"}}>Marksmanship</option>
+
+	<option {{selected skillTree "Focus"}}>Focus</option>
+	<option {{selected skillTree "Defence"}}>Defence</option>
+	<option {{selected skillTree "Vigilance"}}>Vigilance</option>
+	<option {{selected skillTree "Combat"}}>Combat</option>
+	<option {{selected skillTree "Watchman"}}>Watchman</option>
+
+	<option {{selected skillTree "Madness"}}>Madness</option>
+	<option {{selected skillTree "Lightning"}}>Lightning</option>
+	<option {{selected skillTree "Corruption"}}>Corruption</option>
+	<option {{selected skillTree "Deception"}}>Deception</option>
+	<option {{selected skillTree "Darkness"}}>Darkness</option>
+
+	<option {{selected skillTree "Rage"}}>Rage</option>
+	<option {{selected skillTree "Immortal"}}>Immortal</option>
+	<option {{selected skillTree "Vengeance"}}>Vengeance</option>
+	<option {{selected skillTree "Annihilation"}}>Annihilation</option>
+	<option {{selected skillTree "Carnage"}}>Carnage</option>
+
+	<option {{selected skillTree "DirtyFighting"}}>Dirty Fighting</option>
+	<option {{selected skillTree "Saboteur"}}>Saboteur</option>
+	<option {{selected skillTree "Sharpshooter"}}>Sharpshooter</option>
+	<option {{selected skillTree "Sawbones"}}>Sawbones</option>
+	<option {{selected skillTree "Scrapper"}}>Scrapper</option>
+
+	<option {{selected skillTree "AssultSpecialist"}}>Assult Specialist</option>
+	<option {{selected skillTree "CombatMedic"}}>Combat Medic</option>
+	<option {{selected skillTree "Gunnery"}}>Gunnery</option>
+	<option {{selected skillTree "ShieldSpecialist"}}>Shield Specialist</option>
+	<option {{selected skillTree "Tactics"}}>Tactics</option>
+
+      </select>
+    </td>
+    <td>
+      <button class="cancelCharater">Cancel</button>
+      <button class="saveCharater">Save</button>
+    </td>
+  </tr>
+  {{else}}
+  <tr>
+    <td>{{server}}</td>
+    <td>{{allegiance}}</td>
+    <td>{{name}}</td>
+    <td>{{species}}</td>
+    <td>{{baseClass}}</td>
+    <td>{{advClass}}</td>
+    <td>{{skillTree}}</td>
+    <td>
+      <button class="editCharater">Edit</button>
+      <button class="deleteCharater">Delete</button>
+    </td>
+  </tr>
+  {{/if}}
+</template>
+
